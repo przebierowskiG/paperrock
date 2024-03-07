@@ -73,22 +73,42 @@ button {
 
 .result-text {
     font-size: 40px;
-   
     width: 50%;
     text-align: center;
     padding: 10px;
-    border-radius: 15px;
-   
-    
+    border-radius: 15px;   
 }
 
+.result-text.win {
+    background: rgb(7, 170, 7);
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.result-text.draw {
+    background: rgb(240, 148, 11);
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.result-text.lose {
+    background: rgb(243, 11, 42);
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    font-size: 30px;
+}
 
 .reset-game {
     display: none;
     background: rgb(44, 44, 44);
     color: white;
     font-size: 18px;
-    padding: 5px 20px;
+    padding: 8px 20px;
     border-radius: 10px;
     transition: all 0.2s ease-in-out;
 }
@@ -97,5 +117,5 @@ button {
 }
 
 .reset-game :hover {
-    background: rgba(49, 49, 49, 0.876) 
+    background: rgba(100, 99, 99, 0.876) 
 }

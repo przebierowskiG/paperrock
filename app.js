@@ -18,7 +18,9 @@ function setGame(){
     playerPointsSpan.innerHTML = playerPoints;
     compPointsSpan.innerHTML = compPoints;
     resultText.innerHTML = "Choose your weapon :)";
-    resetGameButton.classList.remove("active")
+    resetGameButton.classList.remove("active");
+    
+    
 }
     window.onload = setGame();
 
@@ -30,7 +32,7 @@ function playerSelect(event){
     compSelect();
 }
 
-const availbableCompChoices = ["ROCK", "PAPER", "SCIZORS"];
+const availbableCompChoices = ["ROCK", "PAPER", "SCISSORS"];
 
 function compSelect (){
     const randomIndex = Math.floor(Math.random()* availbableCompChoices.length);
@@ -42,18 +44,28 @@ function compSelect (){
 function checkResult(){
     let winner = ""
     if (
-    (playerChoice === "ROCK" && compChoice === "SCIZORS") || 
+    (playerChoice === "ROCK" && compChoice === "SCISSORS") || 
     (playerChoice === "PAPER" && compChoice === "ROCK")  || 
-    (playerChoice === "SCIZORS" && compChoice === "PAPER") 
+    (playerChoice === "SCISSORS" && compChoice === "PAPER") 
     ){
     winner = "You won!";
     playerPoints++;
+    resultText.classList.add("win");
+    resultText.classList.remove("draw");
+    resultText.classList.remove("lose");
     playerPointsSpan.innerHTML = playerPoints;
     } else if (playerChoice === compChoice){
         winner = "DRAW!"
+        resultText.classList.add("draw");
+        resultText.classList.remove("lose");
+        resultText.classList.remove("win");
+        
     }else {
         winner = "You lost!"
         compPoints++;
+        resultText.classList.add("lose");
+        resultText.classList.remove("draw");
+        resultText.classList.remove("win");
         compPointsSpan.innerHTML = compPoints;
 
     }
