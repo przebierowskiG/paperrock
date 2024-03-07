@@ -17,7 +17,8 @@ let compChoice = "";
 function setGame(){
     playerPointsSpan.innerHTML = playerPoints;
     compPointsSpan.innerHTML = compPoints;
-    resultText.innerHTML = "Choose your weapon :)"
+    resultText.innerHTML = "Choose your weapon :)";
+    resetGameButton.classList.remove("active")
 }
     window.onload = setGame();
 
@@ -25,7 +26,7 @@ function playerSelect(event){
     optionsButtons.forEach((button) => button.classList.remove("active"));
     playerChoice = event.target.dataset.option;
     event.target.classList.add("active")
-
+    resetGameButton.classList.add("active")
     compSelect();
 }
 
@@ -62,6 +63,16 @@ function checkResult(){
     resultText.innerHTML = winner;
     console.log(winner)
 }
+
+function resetGame(){
+    choicesSection.classList.remove("active");
+    optionsButtons.forEach((button) => button.classList.remove("active"));
+    playerPoints = 0;
+    compPoints = 0;
+    setGame();
+
+}
 optionsButtons.forEach((button) => 
     button.addEventListener("click", playerSelect)
     );
+resetGameButton.addEventListener("click", resetGame)
